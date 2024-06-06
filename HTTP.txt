@@ -1,0 +1,51 @@
+响应正文；
+
+2 进制数据部分，包含的通常是客户端实际请求的资源内容。
+
+响应大致内容:
+http/1.1 404 NotFound(CRLF)
+Content-Type: text/html(CRLF)
+COntent-Length: 2546(CRLF)(CRLF)
+
+
+101110101010101010101..............
+
+HTTP 响应Response
+ 响应时服务端发送给客户端的内容。一个响应包含三部分：状态行，响应头，响应正文
+
+ 1. 状态行
+ 状态行是一行字符串（CRLF 结尾），并且状态行有三部分组成，格式为：
+  protocol(SP)statusCode(SP)statusReason(CRLF)
+  协议版本(SP)状态代码(SP)状态描述(CRLF)
+
+  例如：
+  HTTP/1.1 200 OK
+
+  1xx:
+  2xx:
+  3xx:
+  4xx:   客户端错误
+  5xx:   服务端错误
+
+
+这里的两个响应头；
+
+Content-Type 是用来告知浏览器响应正文中的内容是什么类型的数据(图片，页面等等)
+
+不同的类型对应的值是不同的，比如：
+
+文件类型         content-Type对应的值；
+html           text/html
+css            text/css
+js             application/javascript
+png            image/png
+gif            image/gif
+jpg            image/jpg
+
+
+
+
+MIME
+Content-length是用来告知浏览器响应正文第长度，单位是字节。
+
+浏览器接受正文前会根据上述两个响应头的得知长度和类型从而读取出   显示给用户看。
